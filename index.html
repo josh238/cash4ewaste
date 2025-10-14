@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash4 E-waste - We Buy Your Dead Electronics in Nigeria</title>
+    
+    <!-- Add Favicon (browser tab icon) -->
+    <link rel="icon" href="/ChatGPT_Image_Jun_18__2025__06_16_20_PM-removebg-preview.png" type="image/png">
+    
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header & Logo */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2E8B57;
+        }
+
+        .logo img {
+            height: 50px; /* Adjust this to fit your logo */
+            width: auto;
+        }
+
+        .logo span {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2E8B57, #3CB371);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+
+        .cta-button:hover {
+            background: #FFC400;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp-button:hover {
+            background: #20BD5C;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2E8B57;
+        }
+
+        .about {
+            background: #fff;
+        }
+
+        .about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Services & Pricing */
+        .services {
+            background: #f0f8f4;
+        }
+
+        .price-list, .accepted-items {
+            margin-bottom: 30px;
+        }
+
+        .price-list h3, .accepted-items h3 {
+            color: #2E8B57;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px auto;
+            padding: 15px;
+            border-left: 5px solid #2E8B57;
+            max-width: 500px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+
+        .price-note {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            color: #2E8B57;
+            font-weight: bold;
+        }
+
+        /* Process */
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background: white;
+            padding: 25px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: #2E8B57;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact {
+            background: #fff;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .phone {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #2E8B57;
+        }
+
+        .contact-buttons {
+            margin: 20px 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float {
+            display: flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #20BD5C;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .whatsapp-text {
+                display: none;
+            }
+            .whatsapp-float {
+                padding: 15px;
+                border-radius: 50%;
+            }
+            .whatsapp-icon {
+                margin-right: 0;
+                font-size: 28px;
+            }
+            .logo img {
+                height: 40px; /* Smaller logo on mobile */
+            }
+        }
+    </style>
+    <!-- WhatsApp icon from Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+              
+          
+                <img src="/ChatGPT_Image_Jun_18__2025__06_16_20_PM-removebg-preview.png" alt="Cash4 E-waste Logo">
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>We Buy Your Dead Electronics For Cash!</h1>
+            <p>Got old, broken, or abandoned computers? Get paid for your e-waste with our free pickup service across Southwest Nigeria.</p>
+            <div>
+                <a href="tel:+2349166317394" class="cta-button">Get Your Quote Now - Call Us</a>
+                <a href="https://wa.me/2349166317394?text=Hello%20Cash4%20E-waste!%20I%20have%20some%20items%20I'd%20like%20to%20sell.%20Can%20you%20give%20me%20a%20price%20quote?" class="cta-button whatsapp-button">Get Price Quote on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Cash4 E-waste, we provide a simple and profitable solution for your electronic waste. We buy dead and abandoned computer systems, dismantle them, and ensure the components are responsibly recycled. Best of all, we offer <strong>free pickup</strong> throughout the Southwest states of Nigeria.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Items We Buy</h2>
+            
+            <div class="price-list">
+                <h3>We Pay Cash For These Items</h3>
+                <ul>
+                    <li>CPUs</li>
+                    <li>Laptops</li>
+                    <li>Monitors (Tube and LCD)</li>
+                    <li>Network Servers</li>
+                    <li>PCBs (Motherboards)</li>
+                    <li>UPS Systems</li>
+                </ul>
+                <p class="price-note">Contact us for current pricing - we offer competitive rates!</p>
+            </div>
+
+            <div class="accepted-items">
+                <h3>What We DON'T Buy</h3>
+                <ul>
+                    <li>Working Items</li>
+                    <li>Keyboards & Mouses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us What You Have</h3>
+                    <p>Contact us with a list of your items for a personalized quote.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Quote</h3>
+                    <p>We'll give you a competitive price based on your specific items.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Schedule Free Pickup</h3>
+                    <p>We come to you at your convenience and pay you cash!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get Your Price Quote Today</h2>
+            <p class="contact-info">Contact us now to find out how much your e-waste is worth!</p>
+            <p class="contact-info phone">09166317394 / 09028622696</p>
+            <p class="contact-info">Email: <a href="mailto:joshlere10@gmail.com">cash4ewaste.ng@gmail.com</a></p>
+            
+            <div class="contact-buttons">
+                <a href="tel:+2349166317394" class="cta-button">Call for Quote</a>
+                <a href="https://wa.me/2349166317394?text=Hello%20Cash4%20E-waste!%20I%20have%20some%20items%20I'd%20like%20to%20sell.%20Can%20you%20give%20me%20a%20price%20quote?" class="cta-button whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Get Quote on WhatsApp
+                </a>
+            </div>
+            
+            <p class="contact-info"><strong>Service Area:</strong> All Southwest states of Nigeria</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cash4 E-waste. Turning your e-waste into cash.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/2349166317394?text=Hello%20Cash4%20E-waste!%20I%20have%20some%20items%20I'd%20like%20to%20sell.%20Can%20you%20give%20me%20a%20price%20quote?" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <span class="whatsapp-text">Get Price Quote</span>
+        </a>
+    </div>
+</body>
+</html>
