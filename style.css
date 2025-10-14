@@ -172,11 +172,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    /* Add background image with overlay */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* transparent dark overlay */
+        url('/asset/assortment-dirty-dumped-objects.jpg') center/cover no-repeat; /* replace with your image path */
     color: var(--white);
     position: relative;
     overflow: hidden;
 }
+
 
 .hero-container {
     max-width: 1200px;
