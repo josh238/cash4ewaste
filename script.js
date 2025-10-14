@@ -1,13 +1,35 @@
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
+navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    
+    // Animate hamburger icon
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach(bar => bar.classList.toggle('active'));
 });
 
-// Smooth Scrolling
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
+// Navbar background on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -19,60 +41,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Scroll Functions
-function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-function scrollToServices() {
-    document.getElementById('services').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-// Form Submission
-document.getElementById('quoteForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        devices: document.getElementById('devices').value,
-        location: document.getElementById('location').value
-    };
-    
-    // Simulate form submission
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.textContent = 'Getting Quote...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        alert(`Thank you ${formData.name}! We've received your request and will contact you within 30 minutes with your quote.`);
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        this.reset();
-    }, 2000);
-});
-
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    }
 });
 
 // Animation on scroll
@@ -92,9 +60,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .step, .contact-form, .contact-info');
+    const animatedElements = document.querySelectorAll('.about-card, .step, .service-category, .contact-item');
     
-    animateElements.forEach(el => {
+    animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -102,12 +70,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+// Form submission handling (if you add a form later)
+function handleFormSubmission(formData) {
+    // This would be implemented when you add a contact form
+    console.log('Form submission:', formData);
+    // Typically you would send this to a server or email service
+}
+
+// WhatsApp message enhancement
+function enhanceWhatsAppLinks() {
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+    whatsappLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // You can add tracking or analytics here
+            console.log('WhatsApp link clicked');
+        });
+    });
+}
+
+// Initialize enhancements
+document.addEventListener('DOMContentLoaded', () => {
+    enhanceWhatsAppLinks();
     
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
+    // Add loading animation
+    const loader = document.createElement('div');
+    loader.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    `;
+    loader.innerHTML = `
+        <div style="color: white; font-size: 2rem; font-weight: bold;">
+            Cash4 E-waste
+        </div>
+    `;
+    document.body.appendChild(loader);
+    
+    // Remove loader after page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(loader);
+            }, 500);
+        }, 1000);
+    });
 });
+
+// Add some interactive elements
+function addInteractiveElements() {
+    // Add hover effects to service items
+    const serviceItems = document.querySelectorAll('.item');
+    serviceItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateX(10px)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateX(0)';
+        });
+    });
+}
+
+// Initialize interactive elements
+document.addEventListener('DOMContentLoaded', addInteractiveElements);
